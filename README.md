@@ -1,35 +1,38 @@
-# ControlGastos
+# Gestion de Gastos Personales
+Diseña una clase "Gasto" que tenga propiedades como "categoría", "monto" y "fecha". 
+Implementa funciones que permitan agregar, editar y eliminar gastos en un registro 
+de gastos personales. Además, crea una función que calcule el total de gastos en 
+una categoría específica.
+## Indice
 
-This template should help get you started developing with Vue 3 in Vite.
+1. [Requisitos](#requisitos)
+2. [Tecnologias](#tecnologias)
+3. [Configuracion](#configuracion)
+4. [Integrantes](#integrantes)
 
-## Recommended IDE Setup
+## Requisitos
+* Instalar [Node.js](https://nodejs.org/) version 16.0 o superior
+* Para el IDE [Visual Studio Code](https://code.visualstudio.com/) tener la extension de Vue [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Tecnologias
 
-## Customize configuration
+* [Vue.js](https://vuejs.org/) Version 
+* [Vuetify](https://vuetifyjs.com/) Version
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Configuracion
 
-## Project Setup
+1. Clone el repositorio y abralo en el VSCode
+2. Toque click derecho en la carpeta del proyecto src la opción de abrir en terminal integrado
+3. En el terminal que se abrio ejecute el siguiente comando: 
 
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
+4. Luego el siguiente comando que se debe cada vez que abras el proyecto para poder ver la pagina mientras se programa
 
 ```sh
 npm run dev
 ```
+## Integrantes
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+[Jacqueline]()   [Camila]()   [Adrian]()   [Karla]()   [Kendry]()

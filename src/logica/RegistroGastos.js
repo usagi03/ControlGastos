@@ -1,10 +1,3 @@
-/*Karla Quintela Fernández G-22 
-Orden 13: Control de Gastos Personales
-Diseña una clase "Gasto" que tenga propiedades como "categoría", "monto" y "fecha". 
-Implementa funciones que permitan agregar, editar y eliminar gastos en un registro 
-de gastos personales. Además, crea una función que calcule el total de gastos en 
-una categoría específica.
-*/
 import { Gasto } from "./Gasto";
 
 export class Registro{
