@@ -16,8 +16,8 @@ una categoría específica.
 
 ## Tecnologias
 
-* [Vue.js](https://vuejs.org/) Version 
-* [Vuetify](https://vuetifyjs.com/) Version
+* [Vue.js](https://vuejs.org/) Version 3.3.4
+* [Vuetify](https://vuetifyjs.com/) Version 3.3.22
 
 ## Configuracion
 
@@ -28,11 +28,16 @@ una categoría específica.
 ```sh
 npm install
 ```
-4. Luego el siguiente comando que se debe cada vez que abras el proyecto para poder ver la pagina mientras se programa
+4. Luego el siguiente comando que se debe cada vez que abras el proyecto para poder ver la pagina mientras se programa:
 
 ```sh
 npm run dev
 ```
+5. Abra la direccion de localhost que te aparecera en tu navegador, ahi se podra visualizar lo que ya esta hecho en la pagina.
 ## Integrantes
 
-[Jacqueline]()   [Camila]()   [Adrian]()   [Karla]()   [Kendry]()
+[Jacqueline]()
+[Camila]()
+[Adrian]()
+[Karla]()
+[Kendry]()
