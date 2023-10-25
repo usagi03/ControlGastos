@@ -1,9 +1,14 @@
-<script setup>
-import ElInicio from '../components/ElInicio.vue';
-</script>
 
 <template>
-  <main>
-    <ElInicio/>
-  </main>
+  <v-container>
+    <ElInicio />
+  </v-container>
 </template>
+<script>
+import ElInicio from '../components/ElInicio.vue';
+
+export default {
+    components: { ElInicio }
+}
+
+</script>

@@ -1,6 +1,6 @@
 import { Gasto } from "./Gasto";
 
-export class Registro{
+export default class Registro{
   constructor(){
     this.registro = [];
   }
@@ -86,26 +86,3 @@ export class Registro{
   }
 }
 
-//Valores de prueba
-const registro = new Registro();
-registro.agregar('Rutero','Transporte', 5, '2023-09-26');
-registro.agregar('Almuerzo','Comida', 150, '2023-09-26');
-registro.agregar('Taxi','Transporte', 150, '2023-09-26');
-registro.agregar('Datos','Internet', 500, '2023-09-29');
-registro.agregar('Café con amigos','Comida', 450, '2023-09-30');
-registro.mostrar();
-
-
-// Editar gastos 
-registro.editarFecha(2,'2023-10-01');
-registro.editarNombre(5,'Salida con amigos');
-registro.editarCategoria(4,'Otro');
-registro.editarMonto(3, 250);
-registro.mostrar();
-
-// Eliminar un gasto
-registro.eliminar(1);
-registro.mostrar();
-
-// Calcular total de gastos en una categoría específica
-registro.calcularTotalPorCategoria('Comida');

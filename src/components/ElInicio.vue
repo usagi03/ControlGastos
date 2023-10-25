@@ -13,13 +13,21 @@
           <v-spacer></v-spacer>
         <v-row>
          <v-col class="mt-5 mx-10">
-          <v-btn color="blue">Mostrar Gastos</v-btn>   
+          <v-btn color="blue" @click="accederGastos">Mostrar Gastos</v-btn>   
           <v-btn class="ml-10" color="blue">Reportes</v-btn>
          </v-col>   
         </v-row>
-        
         </v-col>
      </v-row>
        
     </v-container>
 </template>
+<script setup>
+//Funciones
+function accederGastos(){
+    if(this.$router.name != 'gastos'){
+       this.$router.push('gastos'); 
+    }
+    
+}
+</script>
