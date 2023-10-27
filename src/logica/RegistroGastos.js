@@ -1,6 +1,6 @@
 import { Gasto } from "./Gasto";
 
-export default class Registro{
+export class Registro{
   constructor(){
     this.registro = [];
   }

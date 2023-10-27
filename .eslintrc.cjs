@@ -10,5 +10,9 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  'vue/valid-v-slot': ['error', {
+    allowModifiers: true,
+  }],
+
 }

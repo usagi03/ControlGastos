@@ -23,7 +23,7 @@ export class Gasto {
     }
   
     setMonto(monto) {
-      if (monto && typeof monto === 'number' && monto > 0) {
+      if (monto && monto > 0) {
         this.monto = monto;
       } else {
         throw new Error('El monto debe ser un número mayor que cero.');

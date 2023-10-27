@@ -18,6 +18,7 @@ una categoría específica.
 
 * [Vue.js](https://vuejs.org/) Version 3.3.4
 * [Vuetify](https://vuetifyjs.com/) Version 3.3.22
+* [Vue Router](https://router.vuejs.org) Version 4.0
 
 ## Configuracion
 
@@ -34,6 +35,9 @@ npm install
 npm run dev
 ```
 5. Abra la direccion de localhost que te aparecera en tu navegador, ahi se podra visualizar lo que ya esta hecho en la pagina.
+
+## Funcionalidades
+
 ## Integrantes
 
 [Jacqueline]()

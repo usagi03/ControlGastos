@@ -1,56 +1,240 @@
 <template>
-   <v-container>
-      <v-table theme="ligth">
-    <thead>
-      <tr>
-        <th class="text-left">
-          Nombre
-        </th>
-        <th class="text-left">
-          Categoria
-        </th>
-        <th class="text-left">
-          Monto
-        </th>
-        <th class="text-left">
-          Fecha
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="gasto in gastos"
-        :key="gasto.nombre"
+   <v-container class="d-flex justify-center mb-6">
+    <v-data-table
+    :headers="headers"
+    :items="gastos"
+    :sort-by="[{ key: 'categoria', order: 'asc' }]"
+    class="elevation-1"
+   >
+    <template v-slot:top>
+      <v-tool-bar  class="d-flex justify-end">
+        <v-spacer></v-spacer>
+        
+         <v-dialog
+         v-model="dialog"
+         persistent
+         max-width="500px"
+        >
+           <template v-slot:activator="{ props }">
+          <v-btn
+           variant="text"
+           icon
+           density="compact"
+           class="mt-3 mr-3"
+           v-bind="props"
+            >
+              <v-icon><IconPlus/></v-icon>
+            </v-btn>
+            
+           </template>  
+           <v-card>
+            <v-card-title>
+              <span class="text-h5">{{ formTitle }}</span>
+            </v-card-title>
+            <v-card-text>
+              <v-row>
+                <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                >
+                <v-text-field 
+                v-model="gastoItem.nombre"
+                label="Nombre"></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                >
+                <v-text-field 
+                v-model="gastoItem.categoria"
+                label="Categoria"></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                >
+                <v-text-field 
+                v-model="gastoItem.monto"
+                label="Monto"></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                >
+                <v-text-field 
+                v-model="gastoItem.fecha"
+                label="Fecha"></v-text-field>
+              </v-col>
+              </v-row>
+            </v-card-text>
+           </v-card>
+           <v-card-actions
+            class="mt-n12 mr-4"
+           >
+            <v-spacer></v-spacer>
+            <v-btn
+                color="blue-darken-1"
+                variant="text"
+                @click="close"
+              >
+                Cancelar
+              </v-btn>
+              <v-btn
+                color="blue-darken-1"
+                variant="text"
+                @click="save"
+              >
+                {{ tituloBoton }}
+              </v-btn>
+           </v-card-actions>
+         </v-dialog>
+         <v-dialog v-model="dialogDelete" max-width="500px">
+          <v-card>
+            <v-card-title class="text-h5">¿Seguro que quieres eliminar el elemento?</v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancelar</v-btn>
+              <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirm">OK</v-btn>
+              <v-spacer></v-spacer>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+       </v-tool-bar>
+      </template> 
+       <template  v-slot:[`item.actions`]="{ item }">
+      <v-icon
+        size="small"
+        class="me-2"
+        @click="editItem(item)"
       >
-        <td>{{ gasto.nombre }}</td>
-        <td>{{ gasto.categoria }}</td>
-        <td>{{ gasto.monto }}</td>
-        <td>{{ gasto.fecha }}</td>
-      </tr>
-    </tbody>
-  </v-table> 
-   </v-container>
+        <IconEdit/>
+      </v-icon>
+      <v-icon
+        size="small"
+        @click="deleteItem(item)"
+      >
+        <IconDelete/>
+      </v-icon>
+    </template>
+         
+
+        
+  </v-data-table>    
+</v-container>
    
 </template>
 <script>
-//import RegistroGastos from '../logica/RegistroGastos'
+import IconPlus from "./icons/IconPlus.vue";
+import IconDelete from "./icons/IconDelete.vue";
+import IconEdit from './icons/IconEdit.vue'
 export default{
-   watchers: {
-      mostrarDatos(){
+  components: {
+    IconPlus,
+    IconDelete,
+    IconEdit,
+},
+   computed: {
+      formTitle () {
+        return this.editedIndex === -1 ? 'Nuevo Gasto' : 'Editar Gasto'
+      },
+      tituloBoton(){
+        return this.editedIndex === -1 ? 'Agregar' : 'Guardar'
+      }
+   },
+   watch: {
+      dialog (val) {
+        val || this.close()
+      },
+      dialogDelete (val) {
+        val || this.closeDelete()
+      },
+    },
+   
+   data(){
+      return {
+         dialog: false,
+         dialogDelete: false,
+         gastos: [
+          {nombre: 'Jota', categoria: 'ere', monto: 30, fecha: '2003-03-03' }
+         ],
+         headers: [
+          {
+            title: 'Nombre',
+            align: 'start',
+            sortable: false,
+            key: 'nombre',
+          },
+          { title: 'Categoria', key: 'categoria' },
+          { title: 'Monto', key: 'monto' },
+          { title: 'Fecha', key: 'fecha' },
+          { title: 'Acciones', key: 'actions', sortable: false },
+        ],
+        editedIndex: -1,
+       gastoItem: {
+        nombre: '',
+        categoria: '',
+        monto: 0,
+        fecha: '',
+      },
+       defaultItem: {
+        nombre: '',
+        categoria: '',
+        monto: 0,
+        fecha: '',
+      },
+      }
+   },
+
+    methods:{
+     /*inicializar(){
+      this.gastos = new RegistroGastos();
       this.gastos.agregar('Rutero','Transporte', 5, '2023-09-26');
       this.gastos.agregar('Almuerzo','Comida', 150, '2023-09-26');
       this.gastos.agregar('Taxi','Transporte', 150, '2023-09-26');
       this.gastos.agregar('Datos','Internet', 500, '2023-09-29');
       this.gastos.agregar('Café con amigos','Comida', 450, '2023-09-30'); 
-}
-   },
-   data(){
-      return {
-         gastos: [
-           {nombre: 'Rutero', categoria: 'Transporte', monto: 5, fecha: '2023-09-26'} 
-         ]
-
-      }
+    }*/
+    close () {
+        this.dialog = false
+        this.$nextTick(() => {
+          this.gastoItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+      save () {
+        if (this.editedIndex > -1) {
+          Object.assign(this.gastos[this.editedIndex], this.gastoItem)
+        } else {
+          this.gastos.push(this.gastoItem)
+        }
+        this.close()
+      },
+      editItem (item) {
+        this.editedIndex = this.gastos.indexOf(item)
+        this.gastoItem = Object.assign({}, item)
+        this.dialog = true
+      },
+      deleteItem (item) {
+        this.editedIndex = this.gastos.indexOf(item)
+        this.editedItem = Object.assign({}, item)
+        this.dialogDelete = true
+      },
+      deleteItemConfirm () {
+        this.gastos.splice(this.editedIndex, 1)
+        this.closeDelete()
+      },
+      closeDelete () {
+        this.dialogDelete = false
+        this.$nextTick(() => {
+          this.gastoItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
    }
+
 }
 </script>
