@@ -39,8 +39,8 @@ npm run dev
 
 ## Integrantes
 
-Jacqueline
-Camila
-Adrian
-Karla
+[Jacqueline] (https://github.com/usagi03)
+[Camila] (https://github.com/CamilaMartinGarrido)
+[Adrian] (https://github.com/abREalNub)
+[Karla] (https://github.com/KarlaQuintela)
 Kendry
