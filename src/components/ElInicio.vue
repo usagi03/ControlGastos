@@ -14,7 +14,6 @@
         <v-row>
          <v-col class="mt-5 mx-10">
           <v-btn color="blue" @click=accederGastos>Mostrar Gastos</v-btn>   
-          <v-btn class="ml-10" color="blue">Reportes</v-btn>
          </v-col>   
         </v-row>
         </v-col>
@@ -27,7 +26,7 @@ export default{
    methods:{
     accederGastos(){
        this.$router.push('/gastos')
-}  
+    },
    }
 }
 

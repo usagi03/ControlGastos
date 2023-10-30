@@ -36,12 +36,11 @@ npm run dev
 ```
 5. Abra la direccion de localhost que te aparecera en tu navegador, ahi se podra visualizar lo que ya esta hecho en la pagina.
 
-## Funcionalidades
 
 ## Integrantes
 
-[Jacqueline]()
-[Camila]()
-[Adrian]()
-[Karla]()
-[Kendry]()
+Jacqueline
+Camila
+Adrian
+Karla
+Kendry

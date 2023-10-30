@@ -11,7 +11,7 @@ const router = createRouter({
     },
     {
       path: '/gastos',
-      component: Gastos
+      component: Gastos,
     },
   ]
 })
